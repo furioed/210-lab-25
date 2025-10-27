@@ -109,6 +109,8 @@ int main() {
         rawData.push_back(line);
     fin.close();
 
+
+
     vector<string> vec;
     list<string> lst;
     set<string> st;
@@ -123,24 +125,24 @@ int main() {
     // Read     
     cout << setw(10) << "Read"
          << setw(10) << raceRead(vec, rawData)
-         << setw(10) << raceRead(1st, rawData)
+         << setw(10) << raceRead(lst, rawData)
          << setw(10) << raceRead(st, rawData) << endl;
         
 
     // Sort 
     cout << setw(10) << "Sort"
          << setw(10) << raceSort(vec)
-         << setw(10) << raceSort(1st)
+         << setw(10) << raceSort(lst)
          << setw(10) << raceSort(st) << endl;
     
     // Insert 
     cout << setw(10) << "Insert"
          << setw(10) << raceInsert(vec, "TESTCODE")
-         << setw(10) << raceInsert(1st, "TESTCODE")
+         << setw(10) << raceInsert(lst, "TESTCODE")
          << setw(10) << raceInsert(st, "TESTCODE") << endl;
         
     // Delete
-    cout << setw(12) << "Delete"
+    cout << setw(10) << "Delete"
          << setw(10) << raceDelete(vec)
          << setw(10) << raceDelete(lst)
          << setw(10) << raceDelete(st) << endl;
