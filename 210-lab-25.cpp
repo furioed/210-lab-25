@@ -43,8 +43,41 @@ long long raceSort(T& container) {
     return duration_cast<microseconds>(end - start).count();
 }
 
+// Sort vector specialization
+long long raceSort(vector<string>& vec) {
+    auto start = high_resolution_clock::now();
+    sort(vec.begin(), vec.end());
+    auto end = high_resolution_clock::now();
+    return duration_cast<microseconds>(end - start).count();
+}
+
+// Set is already sorted
+long long raceSort(set<string>&) {
+    return -1;
+}
+
+// Insert in middle
+template <typename T>
+long long raceInsert(T& container, const string& value) {
+    auto start = high_resolution_clock::now();
+    auto it = container.begin();
+    advance(it, container.size() / 2);
+    container.insert(it, value);
+    auto end = high_resolution_clock::now();
+    return duration_cast<microseconds>(end - start).count();
+}
+
+// Insert for set
+long long raceInsert(set<string>& st, const string& value) {
+    auto start = high_resolution_clock::now();
+    st.insert(value);
+    auto end = high_resolution_clock::now();
+    return duration_cast<microseconds>(end - start).count();
+}
+
 int main() {
     
+
 
     return 0;
 }
