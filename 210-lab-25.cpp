@@ -75,8 +75,43 @@ long long raceInsert(set<string>& st, const string& value) {
     return duration_cast<microseconds>(end - start).count();
 }
 
+// Delete middle element
+template <typename T>
+long long raceDelete(T& container) {
+    auto start = high_resolution_clock::now();
+    auto it = container.begin();
+    advance(it, container.size() / 2);
+    container.erase(it);
+    auto end = high_resolution_clock::now();
+    return duration_cast<microseconds>(end - start).count();
+}
+
+// Delete for set
+long long raceDelete(set<string>& st) {
+    auto start = high_resolution_clock::now();
+    auto it = st.begin();
+    advance(it, st.size() / 2);
+    st.erase(it);
+    auto end = high_resolution_clock::now();
+    return duration_cast<microseconds>(end - start).count();
+}
+
 int main() {
+    vector<string> rawData;
+    ifstream fin("codes.txt"); // For the data file
+    if (!fin) {
+        cerr << "Cannot open data file. Please check the file and try again.\n";
+        return 1;
+        
+    }
+    string line;
+    while (getline(fin, line))
+        rawData.push_back(line);
+    fin.close();
+
+
     
+
 
 
     return 0;
